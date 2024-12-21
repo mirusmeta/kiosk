@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;500;600;700;800&family=Roboto:wght@100;300;400;500;700;900&display=swap');
+    </style>
+    <meta charset="utf-8">
+    <link rel="stylesheet" type="text/css" href="styles.css">
+    <title>Расписания | Школа №49</title>
+</head>
+<body>
+    <div id="snowflakes-container"></div>
+<div style="display: flex;height: 140px">
+    <p style="padding-top: -30px" class="rasp">Выберите нужное расписание</p>
+</div>
+
+<div style="margin-bottom: 60px;margin-top: 200px;width: 100%;height: 420px;display: flex;justify-content: center">
+    <div style="display: flex; justify-content: center; align-items: center;width: 340px;height: 420px; margin-right: 50px" id="lessons" class="red_classbut">
+        <p style="line-height: 150%;text-align: center" class="classname"><br><t style="color:rgba(241,0,0,0.92);font-size: 26px">Временно не доступно!</t><br><br>Расписание уроков<br><img style="width: 50px;height: 50px;margin-top: 15px" src="lesson.png"/><br><br><t style="color:rgba(241,0,0,0.92);font-size: 26px">Временно не доступно!</t></p><br>
+    </div>
+    <div style="display: flex; justify-content: center; align-items: center;width: 340px; height: 420px;margin-right: 50px" id="bells" class="classbut">
+        <p style="line-height: 150%;text-align: center" class="classname"><br>Расписание звонков<br><img style="width: 50px;height: 50px;margin-top: 15px" src="bell.png"/></p>
+    </div>
+</div><br>
+
+<script>
+    setTimeout(function() {window.location.href = "main.html";}, 60000); // 60 000 миллисекунд = 1 минута
+    let lessons = document.getElementById("lessons")
+    let bells = document.getElementById("bells")
+    function lessonsf(){
+        //window.location.href = "index.html"
+    }
+    function bellsf(){
+        window.location.href = "zvonkiraspisanie.html"
+    }
+    lessons.addEventListener('click', lessonsf, false)
+    bells.addEventListener('click', bellsf, false)
+</script>
+<script>
+    function createSnowflake() {
+        const snowflake = document.createElement('div');
+        snowflake.classList.add('snowflake');
+        snowflake.style.left = `${Math.random() * 100}vw`;
+        const size = `${Math.random() * 20 + 10}px`; // Adjust size range
+        snowflake.style.width = size;
+        snowflake.style.height = size;
+        snowflake.style.animationDuration = `${Math.random() * 5 + 5}s`; // Slower animation
+        document.getElementById('snowflakes-container').appendChild(snowflake);
+
+        setTimeout(() => {
+            snowflake.remove();
+        }, 10000); // Adjusted to match the slower animation
+    }
+
+    setInterval(createSnowflake, 100);
+</script>
+<script src="script.js"></script>
+</body>
+</html>

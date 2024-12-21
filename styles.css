@@ -1,0 +1,393 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap');
+#snowflakes-container {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    z-index: 9999;
+    overflow: hidden;
+}
+
+.snowflake {
+    position: absolute;
+    top: -10px;
+    background: url('snowflake.png') no-repeat center center;
+    background-size: contain;
+    width: 20px; /* Default size */
+    height: 20px; /* Default size */
+    pointer-events: none;
+    animation: fall linear infinite;
+}
+
+@keyframes fall {
+    to {
+        transform: translateY(100vh);
+    }
+}
+#countdown{
+    font-family: Roboto;
+    font-size: 21px;
+    line-height: 1.3;
+}
+.rasp{
+    color: #000;
+    margin-left: auto;
+    margin-right: auto;
+    font-family: Roboto;
+    font-size: 62px;
+    font-weight: 400;
+}
+.chosec{
+    padding-top: 0px;
+    color: #000;
+    font-family: Roboto;
+    font-size: 39px;
+    font-weight: 300;
+}
+body{
+    background: #a9daff;
+    margin: 0px;
+}
+.textofschool{
+    margin-left: 32px;
+    color: #000;
+    font-family: Roboto;
+    font-size: 34px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: normal;
+}
+.classbut{
+    box-shadow: 4px 4px 4px 0px rgba(0, 75, 110, 0.35);
+    display: flex;
+    border-radius: 30px;
+    background: #c9eeff;
+    width: 230px;
+    height: 80px;
+    margin-right: 40px;
+    justify-content: center;
+}
+.red_classbut{
+    border: solid 3px rgba(241,0,0,0.92);
+    display: flex;
+    border-radius: 30px;
+    background: #c9eeff;
+    width: 230px;
+    height: 80px;
+    margin-right: 40px;
+    justify-content: center;
+}
+#version{
+    background: #c9eeff;
+}
+.classbut:hover{
+    background: #aed4e6;
+    transition: 300ms;
+    cursor: pointer ;
+}
+.classname{
+    margin-top: auto;
+    margin-bottom: auto;
+    color: #000;
+    font-family: Roboto;
+    font-size: 30px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+}
+.daybut{
+    margin-left: 32px;
+    display: flex;
+    border-radius: 30px;
+    background: #D9D9D9;
+    width: 230px;
+    height: 80px;
+    margin-right: 40px;
+}
+.daybut:hover{
+    background: #BDBDBD;
+    transition: 300ms;
+    cursor: pointer ;
+}
+.raspisanie{
+    margin-left: 32px;
+    display: flex;
+    border-radius: 30px;
+    background: #FFFFFF;
+    width: 430px;
+    height: 420px;
+    margin-right: 40px;
+    display: block;
+}
+.raspisanie2{
+    margin-left: 32px;
+    display: flex;
+    border-radius: 30px;
+    background: #FFFFFF;
+    width: 340px;
+    height: 420px;
+    margin-right: 32px;
+    display: block;
+}
+.raspisanie3{
+    margin-left: 32px;
+    display: flex;
+    border-radius: 30px;
+    background: #a9daff;
+    width: 340px;
+    height: 360px;
+    margin-right: 32px;
+    display: block;
+}
+.toptext{
+    margin-left: 20px;
+    color: #000;
+    font-family: Roboto;
+    font-size: 26px;
+    font-style: normal;
+    line-height: normal;
+}
+.pridtext{
+    line-height: 160%;
+    color: #000;
+    font-family: Roboto;
+    font-size: 26px;
+    font-style: normal;
+    font-weight: 400;
+    margin-top: -22px;
+    margin-left: 20px;
+}
+#backbut{
+    width: 290px;
+    height: 60px;
+    border-radius: 14px;
+    background: #BBE9FC;
+    color: black;
+    box-shadow: none;
+    font-family: Roboto;
+    font-size: 22px;
+    border: none;
+}
+#backbut2{
+    width: 290px;
+    height: 60px;
+    border-radius: 14px;
+    background: #BBE9FC;
+    color: black;
+    box-shadow: none;
+    font-family: Roboto;
+    font-size: 22px;
+    border: none;
+    position: fixed;
+    bottom: 20px;
+    right: 50px;
+}
+#clock{
+    font-family: Roboto;
+    font-size: 80px;
+}
+.hello{
+    color: #000;
+    font-family: Roboto;
+    font-size: 62px;
+    font-weight: 400;
+}
+.timenow{
+    padding-top: 0px;
+    color: #000;
+    font-family: Roboto;
+    font-size: 39px;
+    font-weight: 300;
+}
+#cityname{
+    margin-left: 32px;
+    font-size: 24px;
+    color: #000;
+    font-family: Roboto;
+}
+#temp{
+    margin-left: 32px;
+    font-size: 48px;
+    color: #000;
+    font-family: Roboto;
+}
+#tempinfo{
+    line-height: 120%;
+    padding-right: 32px;
+    margin-left: 32px;
+    font-size: 22px;
+    color: #000;
+    font-family: Roboto;
+}
+.bigblock{
+    text-align: center;
+    color: #FFF;
+    font-family: Roboto;
+    font-size: 218px;
+    font-style: normal;
+    font-weight: 600;
+    width: 1800px;
+    line-height: normal;
+    animation: moveClock 9s linear infinite;
+}
+#calendarb{
+    box-shadow: 4px 4px 4px 0px rgba(0, 75, 110, 0.35);
+    border-radius: 30px;
+    background: #c9eeff;
+    width: 230px;
+    height: 80px;
+    margin-right: 40px;
+    justify-content: center;
+    font-family: 'Poppins', sans-serif;
+}
+#calendarb header {
+    display: flex;
+    align-items: center;
+    padding: 6px 30px 0px;
+    justify-content: space-between;
+    font-family: 'Poppins', sans-serif;
+}
+header .current-date{
+    font-size: 1.45rem;
+    font-weight: 500;
+    font-family: 'Poppins', sans-serif;
+}
+.calendar{
+    margin: -20px 20px 24px -20px;
+    font-family: 'Poppins', sans-serif;
+}
+.calendar ul{
+    display: flex;
+    flex-wrap: wrap;
+    list-style: none;
+    text-align: center;
+    font-family: 'Poppins', sans-serif;
+}
+.calendar .days{
+    font-family: 'Poppins', sans-serif;
+}
+.calendar li{
+    color: #333;
+    width: calc(100% / 7);
+    font-size: 1.07rem;
+    font-family: 'Poppins', sans-serif;
+}
+.calendar .weeks li{
+    font-weight: 500;
+    cursor: default;
+    font-family: 'Poppins', sans-serif;
+}
+.calendar .days li{
+    z-index: 1;
+    cursor: pointer;
+    position: relative;
+    margin-top: 20px;
+    font-family: 'Poppins', sans-serif;
+}
+.days li.inactive{
+    color: #aaa;
+    font-family: 'Poppins', sans-serif;
+}
+.days li.active{
+    color: #fff;
+    font-family: 'Poppins', sans-serif;
+}
+.days li::before{
+    position: absolute;
+    content: "";
+    left: 50%;
+    top: 50%;
+    height: 40px;
+    width: 40px;
+    z-index: -1;
+    border-radius: 50%;
+    transform: translate(-50%, -50%);
+    font-family: 'Poppins', sans-serif;
+}
+.days li.active::before{
+    background: #006ad4;
+    font-family: 'Poppins', sans-serif;
+}
+.days li:not(.active):hover::before{
+    background: #dedede;
+    font-family: 'Poppins', sans-serif;
+}
+body {
+    font-family: sans-serif;
+    margin: 0;
+    padding: 20px;
+}
+
+h1 {
+    text-align: center;
+}
+
+#forecast {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    margin-top: 20px;
+}
+
+.day-forecast {
+    width: calc(100% / 7);
+    padding: 10px;
+    border: 1px solid #ddd;
+    text-align: center;
+    margin-bottom: 10px;
+}
+
+.day-forecast img {
+    width: 50px;
+    height: 50px;
+}
+
+
+/* Стили для модального окна */
+.modal {
+    display: none; /* Скрываем окно по умолчанию */
+    position: fixed; /* Фиксированное положение */
+    z-index: 1; /* Поверх всех элементов */
+    left: 0;
+    top: 0;
+    width: 100%; /* Полная ширина */
+    height: 100%; /* Полная высота */
+    overflow: auto; /* Если содержимое больше экрана, появляется скролл */
+    background-color: rgba(0, 0, 0, 0.5); /* Полупрозрачный фон */
+}
+
+.modal-content {
+    position: relative;
+    margin: 5% auto; /* Центрирование модального окна */
+    padding: 20px;
+    width: 80%; /* Ширина модального окна */
+    background-color: white;
+    border-radius: 5px;
+}
+
+.close {
+    position: absolute;
+    right: 20px;
+    top: 20px;
+    font-size: 24px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.pamiatkabut{
+    box-shadow: 4px 4px 4px 0px rgba(0, 75, 110, 0.35);
+    display: flex;
+    border-radius: 30px;
+    background: #c9eeff;
+    width: 300px;
+    height: 80px;
+    margin-right: 40px;
+    justify-content: center;
+}
+.pamiatkabut:hover{
+    background: #aed4e6;
+    transition: 300ms;
+    cursor: pointer ;
+}

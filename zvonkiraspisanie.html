@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;500;600;700;800&family=Roboto:wght@100;300;400;500;700;900&display=swap');
+    </style>
+    <meta charset="utf-8">
+    <link rel="stylesheet" type="text/css" href="styles.css">
+    <title>Расписание звонков | Школа №49</title>
+</head>
+<body>
+    <div id="snowflakes-container"></div>
+<div style="display: flex;height: 140px">
+    <p style="padding-top: -30px" class="rasp">Расписание звонков</p>
+</div>
+
+<div style="margin-bottom: 60px;margin-top: 200px;width: 100%;height: 420px;display: flex;justify-content: center">
+    <div id="monday" class="raspisanie2">
+        <p class="toptext">Первая смена</p><br>
+        <p class="pridtext">
+            1 урок ⠀08:00 - 08:40<br>
+            2 урок ⠀08:45 - 09:25 ⠀<br>
+            3 урок ⠀09:35 - 10:15⠀ <br>
+            4 урок ⠀10:30 - 11:10 ⠀<br>
+            5 урок ⠀11:20 - 12:00 ⠀<br>
+            6 урок ⠀12:05 - 12:45 ⠀<br>
+            7 урок⠀ 12:55 - 13:35 ⠀<br>
+        </p>
+    </div>
+    <div id="tuesday" class="raspisanie2">
+        <p class="toptext">Вторая смена</p><br>
+        <p class="pridtext">
+            1 урок ⠀13:45 - 14:25 ⠀<br>
+            2 урок⠀ 14:35 - 15:15 ⠀<br>
+            3 урок ⠀15:30 - 16:10⠀ <br>
+            4 урок⠀ 16:20 - 17:00 ⠀<br>
+            5 урок⠀ 17:10 - 17:50 ⠀<br>
+            6 урок⠀ 18:00 - 18:40 ⠀<br>
+            7 урок⠀ 18:45 - 19:25 ⠀<br>
+        </p>
+    </div>
+</div><br>
+ 
+<script>
+    let backbut = document.getElementById('backbut');
+    if (backbut) {
+        setTimeout(function() {
+            window.location.href = "main.html";
+        }, 180000); // 60 000 миллисекунд = 1 минута
+        backbut.addEventListener('click', backbutfun, false);
+    }
+    function backbutfun(){
+        window.location.href = "main.html"
+    }
+</script>
+<script>
+    function createSnowflake() {
+        const snowflake = document.createElement('div');
+        snowflake.classList.add('snowflake');
+        snowflake.style.left = `${Math.random() * 100}vw`;
+        const size = `${Math.random() * 20 + 10}px`; // Adjust size range
+        snowflake.style.width = size;
+        snowflake.style.height = size;
+        snowflake.style.animationDuration = `${Math.random() * 5 + 5}s`; // Slower animation
+        document.getElementById('snowflakes-container').appendChild(snowflake);
+
+        setTimeout(() => {
+            snowflake.remove();
+        }, 10000); // Adjusted to match the slower animation
+    }
+
+    setInterval(createSnowflake, 100);
+</script>
+<script src="script.js"></script>
+</body>
+</html>

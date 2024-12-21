@@ -1,0 +1,430 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;500;600;700;800&family=Roboto:wght@300;400;500;700;900&family=Rubik+Distressed&display=swap');
+    </style>
+    <link rel="stylesheet" type="text/css" href="styles.css">
+    <meta charset="UTF-8">
+    <title>Главная</title>
+</head>
+<body id="body">
+<div id="snowflakes-container"></div>
+<div style="display: flex;justify-content: center;height: 140px;align-items: center">
+    <p id="clockalways" class="hello">Добро пожаловать</p><img
+        style="border-radius: 16px;margin-left: 20px;width: 80px; height: 80px" src="logo.jpg">
+</div>
+<div style="display: flex;justify-content: center;margin-top: 0px">
+    <p id="current-time" class="timenow"></p>
+</div>
+<div style="width: 100%;display: flex;justify-content: center;">
+    <div id="clickrasp" style="width: 320px;height:320px;margin-top: 30px;margin-left: 32px;"
+         class="classbut">
+        <p style="line-height: 150%;text-align: center" class="classname">Расписание</p>
+    </div>
+    <div id="clickobchrasp"
+         style="width: 320px;height:320px;margin-top: 30px;margin-left: 32px;display: flex;justify-content: center; align-items: center"
+         class="classbut">
+        <p id="endtime" style="line-height: 150%;text-align: center; font-size: 28px" class="classname"></p><br>
+        <img style="margin-left: 10px;width: 30px;height: 30px" src="clocks.png" alt="">
+    </div>
+
+</div>
+<br>
+<div style="width: 100%;display: flex;justify-content: center;">
+    <div id="newsclick" style="width: 320px;height:320px;margin-top: 60px;margin-left: 32px;display: flex;"
+         class="classbut">
+        <p style="line-height: 150%;text-align: center" class="classname"><br>Новости школы<br><img
+                style="width: 50px;height: 50px;margin-top: 15px" src="newsimg.png"/></p>
+    </div>
+    <div id="div2" style="width: 320px;height:320px;margin-top: 60px;margin-left: 32px;display: block;"
+         class="classbut">
+        <div style="width: 400px; display: flex;align-items: center"><p style="color: black" id="cityname"></p><img
+                style="margin-left: 12px;width: 20px;height: 20px" src="loc.svg"></div>
+        <div style="width: 100%;display: flex;align-items: center;justify-content: space-between">
+            <p id="temp"></p>
+            <img style="width: 100px;margin-right: 80px" id="weatherIcon" src="" alt="Weather Icon">
+        </div>
+
+        <p id="tempinfo"></p>
+    </div>
+
+</div>
+<br>
+<div style="width: 100%;display: flex;justify-content: center;">
+    <div id="blockempty"
+         style="background: #a9daff;width: 320px;height:440px;margin-top: 60px;margin-left: 32px;margin-right: 40px">
+         <div style="height: 200px;width: 320px;display: flex;justify-content: space-between;align-items: center" id="indev" class="classbut">
+            <p style="line-height: 180%;text-align: left;font-size: 26px;margin-left: 30px;" class="classname">Tg Бот<br>Школы</p>
+            <img style="width: 120px;height: 120px;margin-right: 30px;" src="qr.png"/>
+        </div>
+        <div style="height: 200px;width: 320px;margin-top: 40px;display: flex;justify-content: center;align-items: center"
+             id="clickPam" class="classbut">
+            <p id="pamiatki" style="line-height: 150%;text-align: center; color:#000000;font-size: 28px" class="classname">Памятки</p><br>
+            <img style="margin-left: 30px;width: 70px;height: 70px" src="pamatki.png" alt="">
+        </div>
+    </div>
+    <div id="calendarb" style="width: 320px;height:440px;margin-top: 60px;margin-left: 32px;">
+        <header>
+            <p class="current-date"></p>
+        </header>
+        <br>
+        <div class="calendar">
+            <ul class="weeks">
+                <li>Пн</li>
+                <li>Вт</li>
+                <li>Ср</li>
+                <li>Чт</li>
+                <li>Пт</li>
+                <li>Сб</li>
+                <li>Вс</li>
+            </ul>
+            <ul class="days"></ul>
+        </div>
+    </div>
+</div>
+<br>
+<div style="width: 100%;display: flex;justify-content: center;">
+    <p style="font-family: Roboto; color: #333333; font-size: 18px;">Разработано by <span
+            style="color: #006ad4;">Mirus</span></p>
+</div>
+<script>
+    function createSnowflake() {
+        const snowflake = document.createElement('div');
+        snowflake.classList.add('snowflake');
+        snowflake.style.left = `${Math.random() * 100}vw`;
+        const size = `${Math.random() * 20 + 10}px`; // Adjust size range
+        snowflake.style.width = size;
+        snowflake.style.height = size;
+        snowflake.style.animationDuration = `${Math.random() * 5 + 5}s`; // Slower animation
+        document.getElementById('snowflakes-container').appendChild(snowflake);
+
+        setTimeout(() => {
+            snowflake.remove();
+        }, 10000); // Adjusted to match the slower animation
+    }
+
+    setInterval(createSnowflake, 100);
+</script>
+<script>
+    
+    let newsclick = document.getElementById('newsclick')
+
+    if (newsclick) {
+        newsclick.addEventListener('click', newsclickf, false)
+    }
+
+    function newsclickf() {
+        window.location.href = "newsofschool.html"
+    }
+
+    document.oncontextmenu = function (e) {
+        return false
+    };
+
+    function capitalizeFirstLetter(str) {
+        return str.charAt(0).toUpperCase() + str.slice(1);
+    }
+
+    let cityname = document.getElementById('cityname')
+    let temp = document.getElementById('temp')
+    let tempinfo = document.getElementById('tempinfo')
+    const apiKey = 'fb7406334087cd3f305ae27dd3a0817b';
+    const city = 'Rostov-on-Don'; // Замените на имя вашего города
+
+    // Функция для получения погоды
+    function getWeather() {
+        fetch(`https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}&units=metric&lang=ru`)
+            .then(response => response.json())
+            .then(data => {
+                cityname.innerHTML = data.name
+                temp.innerHTML = Math.round(data.main.temp) + '°'
+                tempinfo.innerHTML = capitalizeFirstLetter(data.weather[0].description)
+                switch (data.weather[0].main.toLowerCase()) {
+                    case 'clear':
+                        iconUrl = 'sun.png'; // солнечно
+                        break;
+                    case 'clouds':
+                        iconUrl = 'cloud.png'; // облачно
+                        break;
+                    case 'rain':
+                        iconUrl = 'rain.png'; // дождь
+                        break;
+                    case 'wind':
+                        iconUrl = 'wind.png'; // ветрено
+                        break;
+                    default:
+                        iconUrl = 'wind.png'; // Пустая иконка, если нет совпадений
+                        break;
+                }
+
+                weatherIcon.src = iconUrl;
+
+                /*const iconUrl = `https://openweathermap.org/img/wn/${data.weather[0].icon}.png`;
+                weatherIcon.src = iconUrl;*/
+
+            })
+            .catch(error => {
+                console.error('Произошла ошибка:', error);
+            });
+    }
+
+    getWeather();
+
+    function getCurrentDayOfWeek() {
+        var date = new Date();
+        var day = date.getDay();
+
+        switch (day) {
+            case 0:
+                return "Воскресенье";
+                break;
+            case 1:
+                return "Понедельник";
+                break;
+            case 2:
+                return "Вторник";
+                break;
+            case 3:
+                return "Среда";
+                break;
+            case 4:
+                return "Четверг";
+                break;
+            case 5:
+                return "Пятница";
+                break;
+            case 6:
+                return "Суббота";
+                break;
+        }
+    }
+
+    const updateTime = () => {
+        let currentTime = new Date();
+        let hours = currentTime.getHours();
+        let minutes = currentTime.getMinutes();
+        let seconds = currentTime.getSeconds();
+        let day = currentTime.getDate()
+        let month = currentTime.getMonth()
+        let weekday = getCurrentDayOfWeek()
+        month += 1
+        if (minutes < 10) {
+            minutes = '0' + minutes;
+        }
+        if (seconds < 10) {
+            seconds = '0' + seconds;
+        }
+        monthtext = ''
+        if (month === 1) {
+            monthtext = 'января'
+        } else if (month === 2) {
+            monthtext = 'февраля'
+        } else if (month === 3) {
+            monthtext = 'марта'
+        } else if (month === 4) {
+            monthtext = 'апреля'
+        } else if (month === 5) {
+            monthtext = 'мая'
+        } else if (month === 6) {
+            monthtext = 'июня'
+        } else if (month === 7) {
+            monthtext = 'июля'
+        } else if (month === 8) {
+            monthtext = 'августа'
+        } else if (month === 9) {
+            monthtext = 'сентября'
+        } else if (month === 10) {
+            monthtext = 'октября'
+        } else if (month === 11) {
+            monthtext = 'ноября'
+        } else if (month === 12) {
+            monthtext = 'декабря'
+        }
+        const timeString = '' + weekday + ' ' + day + ' ' + monthtext + ' ' + hours + ':' + minutes + ':' + seconds;
+        document.querySelector('#current-time').innerText = timeString;
+    };
+
+    setInterval(updateTime, 1000);
+    const daysTag = document.querySelector(".days"),
+        currentDate = document.querySelector(".current-date"),
+        prevNextIcon = document.querySelectorAll(".icons span");
+    // getting new date, current year and month
+    let date = new Date(),
+        currYear = date.getFullYear(),
+        currMonth = date.getMonth();
+    // storing full name of all months in array
+    const months = ["Января", "Февраль", "Март", "Апрель", "Май", "Июнь", "Июль",
+        "Август", "Сентябрь", "Октябрь", "Ноябрь", "Декабрь"];
+    const renderCalendar = () => {
+        let firstDayofMonth = new Date(currYear, currMonth, 1).getDay(); // getting first day of month
+        if (firstDayofMonth === 0) { // if first day of month is Sunday
+            firstDayofMonth = 1; // move it to Monday
+        }
+        let lastDateofMonth = new Date(currYear, currMonth + 1, 0).getDate(), // getting last date of month
+            lastDayofMonth = new Date(currYear, currMonth, lastDateofMonth).getDay(), // getting last day of month
+            lastDateofLastMonth = new Date(currYear, currMonth, 0).getDate(); // getting last date of previous month
+        let liTag = "";
+        for (let i = firstDayofMonth - 1; i > 0; i--) { // creating li of previous month last days
+            liTag += `<li class="inactive">${lastDateofLastMonth - i + 1}</li>`;
+        }
+        for (let i = 1; i <= lastDateofMonth; i++) { // creating li of all days of current month
+            // adding active class to li if the current day, month, and year matched
+            let isToday = i === date.getDate() && currMonth === new Date().getMonth() && currYear === new Date().getFullYear() ? "active" : "";
+            liTag += `<li class="${isToday}">${i}</li>`;
+        }
+        for (let i = lastDayofMonth; i < 6; i++) { // creating li of next month first days
+            liTag += `<li class="inactive">${i - lastDayofMonth + 1}</li>`
+        }
+        currentDate.innerText = `${months[currMonth]} ${currYear}`; // passing current mon and yr as currentDate text
+        daysTag.innerHTML = liTag;
+    }
+
+    renderCalendar();
+
+    setInterval(updateCountdown, 120000)
+    updateCountdown();
+</script>
+<script>
+    function isInPeriod(startHours, startMinutes, startSeconds, endHours, endMinutes, endSeconds) {
+        // Получаем текущее время
+        const now = new Date();
+        const currentHours = now.getHours();
+        const currentMinutes = now.getMinutes();
+        const currentSeconds = now.getSeconds();
+        // Преобразуем часы, минуты и секунды начала и конца периода в секунды
+        const startTimeInSeconds = startHours * 3600 + startMinutes * 60 + startSeconds;
+        const endTimeInSeconds = endHours * 3600 + endMinutes * 60 + endSeconds;
+
+        // Преобразуем текущее время в секунды
+        const currentTimeInSeconds = currentHours * 3600 + currentMinutes * 60 + currentSeconds;
+
+        // Проверяем, находится ли текущее время внутри периода
+        return currentTimeInSeconds >= startTimeInSeconds && currentTimeInSeconds <= endTimeInSeconds;
+    }
+
+    function subtractTime(hours1, minutes1, seconds1, hours2, minutes2, seconds2) {
+        const totalSeconds1 = hours1 * 3600 + minutes1 * 60 + seconds1;
+        const totalSeconds2 = hours2 * 3600 + minutes2 * 60 + seconds2;
+
+        let difference = totalSeconds2 - totalSeconds1;
+
+
+        if (difference < 0) {
+            difference += 24 * 3600;
+        }
+
+        difference %= 3600;
+        const resultMinutes = Math.floor(difference / 60);
+        const resultSeconds = difference % 60;
+        // Возвращаем результат
+        return `${resultMinutes}:${resultSeconds} `;
+    }
+
+    function timemer() {
+        let endtime = document.getElementById("endtime")
+        let currentTime = new Date();
+        let hours = currentTime.getHours();
+        let minutes = currentTime.getMinutes();
+        let seconds = currentTime.getSeconds();
+        if (hours >= 7 && hours <= 17) {
+            if (isInPeriod(7, 30, 0, 7, 59, 59)) {
+                endtime.innerText = `До начала уроков\n${subtractTime(hours, minutes, seconds, 8, 0, 0)}`;
+            } else {
+                if (isInPeriod(8, 0, 0, 8, 39, 59)) {
+                    endtime.innerText = `До конца урока\n${subtractTime(hours, minutes, seconds, 8, 40, 0)}`;
+                } else {
+                    if (isInPeriod(8, 40, 0, 8, 44, 59)) {
+                        endtime.innerText = `До конца перемены\n${subtractTime(hours, minutes, seconds, 8, 45, 0)}`;
+                    } else {
+                        if (isInPeriod(8, 45, 0, 9, 24, 59)) {
+                            endtime.innerText = `До конца урока\n${subtractTime(hours, minutes, seconds, 9, 25, 0)}`;
+                        } else {
+                            if (isInPeriod(9, 25, 0, 9, 34, 59)) {
+                                endtime.innerText = `До конца перемены\n${subtractTime(hours, minutes, seconds, 9, 35, 0)}`;
+                            } else {
+                                if (isInPeriod(9, 35, 0, 10, 14, 59)) {
+                                    endtime.innerText = `До конца урока\n${subtractTime(hours, minutes, seconds, 10, 15, 0)}`;
+                                } else {
+                                    if (isInPeriod(10, 15, 0, 10, 29, 59)) {
+                                        endtime.innerText = `До конца перемены\n${subtractTime(hours, minutes, seconds, 10, 30, 0)}`;
+                                    } else {
+                                        if (isInPeriod(10, 30, 0, 11, 9, 59)) {
+                                            endtime.innerText = `До конца урока\n${subtractTime(hours, minutes, seconds, 11, 10, 0)}`;
+                                        } else {
+                                            if (isInPeriod(11, 10, 0, 11, 19, 59)) {
+                                                endtime.innerText = `До конца перемены\n${subtractTime(hours, minutes, seconds, 11, 20, 0)}`;
+                                            } else {
+                                                if (isInPeriod(11, 20, 0, 11, 59, 59)) {
+                                                    endtime.innerText = `До конца урока \n${subtractTime(hours, minutes, seconds, 12, 0, 0)}`;
+                                                } else {
+                                                    if (isInPeriod(12, 0, 0, 12, 4, 59)) {
+                                                        endtime.innerText = `До конца перемены \n${subtractTime(hours, minutes, seconds, 12, 10, 0)}`;
+                                                    } else {
+                                                        if (isInPeriod(12, 5, 0, 12, 44, 59)) {
+                                                            endtime.innerText = `До конца урока \n${subtractTime(hours, minutes, seconds, 12, 50, 0)}`;
+                                                        } else {
+                                                            if (isInPeriod(12, 45, 0, 12, 54, 59)) {
+                                                                endtime.innerText = `До конца перемены \n${subtractTime(hours, minutes, seconds, 13, 0, 0)}`;
+                                                            } else {
+                                                                if (isInPeriod(12, 55, 0, 13, 34, 59)) {
+                                                                    endtime.innerText = `До конца урока \n${subtractTime(hours, minutes, seconds, 13, 40, 0)}`;
+                                                                } else {
+                                                                    if (isInPeriod(13, 45, 0, 13, 44, 59)) {
+                                                                        endtime.innerText = `До конца перемены \n${subtractTime(hours, minutes, seconds, 13, 45, 0)}`;
+                                                                    } else {
+                                                                        if (isInPeriod(13, 45, 0, 14, 24, 59)) {
+                                                                            endtime.innerText = `До конца урока \n${subtractTime(hours, minutes, seconds, 14, 25, 0)}`;
+                                                                        } else {
+                                                                            if (isInPeriod(14, 25, 0, 14, 34, 59)) {
+                                                                                endtime.innerText = `До конца перемены \n${subtractTime(hours, minutes, seconds, 14, 35, 0)}`;
+                                                                            } else {
+                                                                                if (isInPeriod(14, 35, 0, 15, 14, 59)) {
+                                                                                    endtime.innerText = `До конца урока \n${subtractTime(hours, minutes, seconds, 15, 15, 0)}`;
+                                                                                } else {
+                                                                                    if (isInPeriod(15, 15, 0, 15, 29, 59)) {
+                                                                                        endtime.innerText = `До конца перемены \n${subtractTime(hours, minutes, seconds, 15, 30, 0)}`;
+                                                                                    } else {
+                                                                                        if (isInPeriod(15, 30, 0, 16, 9, 59)) {
+                                                                                            endtime.innerText = `До конца урока \n${subtractTime(hours, minutes, seconds, 16, 10, 0)}`;
+                                                                                        } else {
+                                                                                            if (isInPeriod(16, 10, 0, 16, 19, 59)) {
+                                                                                                endtime.innerText = `До конца перемены \n${subtractTime(hours, minutes, seconds, 16, 20, 0)}`;
+                                                                                            } else {
+                                                                                                if (isInPeriod(16, 20, 0, 16, 59, 59)) {
+                                                                                                    endtime.innerText = `До конца урока \n${subtractTime(hours, minutes, seconds, 17, 0, 0)}`;
+                                                                                                } else {
+                                                                                                    endtime.innerText = `Уроков нет`;
+                                                                                                }
+                                                                                            }
+                                                                                        }
+                                                                                    }
+                                                                                }
+                                                                            }
+                                                                        }
+                                                                    }
+                                                                }
+                                                            }
+                                                        }
+                                                    }
+                                                }
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        } else {
+            endtime.innerText = "Школа отдыхает";
+        }
+    }
+
+    setInterval(timemer, 1000);
+</script>
+<script src="script.js"></script>
+
+</body>
+</html>

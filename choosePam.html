@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;500;600;700;800&family=Roboto:wght@100;300;400;500;700;900&display=swap');
+    </style>
+    <meta charset="utf-8">
+    <link rel="stylesheet" type="text/css" href="styles.css">
+    <title>Памятки | Школа №49</title>
+</head>
+<body>
+    <div id="snowflakes-container"></div>
+<div style="display: flex;height: 140px">
+    <p style="padding-top: -30px" class="rasp">Выберите нужные памятки</p>
+</div>
+
+<div style="margin-bottom: 60px;margin-top: 200px;width: 100%;height: 420px;display: flex;justify-content: center">
+    <div style="display: flex; justify-content: center; align-items: center;width: 340px;height: 420px; margin-right: 50px" id="pupdils" class="red_classbut">
+        <p style="line-height: 150%;text-align: center" class="classname"><t style="color:rgba(241,0,0,0.92);font-size: 26px">Временно не доступно!</t><br><br>Для учеников<br><img style="width: 70px;height: 70px;margin-top: 15px" src="pupil.png"/><br><br><t style="color:rgba(241,0,0,0.92);font-size: 26px">Временно не доступно!</t></p><br>
+    </div>
+    <div style="display: flex; justify-content: center; align-items: center;width: 340px; height: 420px;margin-right: 50px" id="elderypeople" class="red_classbut">
+        <p style="line-height: 150%;text-align: center" class="classname"><t style="color:rgba(241,0,0,0.92);font-size: 26px">Временно не доступно!</t><br><br>Для взрослых<br><img style="width: 50px;height: 50px;margin-top: 15px" src="userpic.png"/><br><br><t style="color:rgba(241,0,0,0.92);font-size: 26px">Временно не доступно!</t></p><br>
+    </div>
+</div><br>
+<div style="width: 100%;height: 420px;display: flex;justify-content: center;align-items: center">
+    <div style="opacity: 0;display: flex; justify-content: center;align-items: center;" id="friday" class="raspisanie3">
+
+    </div>
+    <div style="background: #a9daff;display: flex;justify-content: end;align-items: end" class="raspisanie3">
+        <button id="backbut">
+            Вернуться на главную
+        </button>
+    </div>
+</div>
+<script>
+    setTimeout(function() {window.location.href = "main.html";}, 60000); // 60 000 миллисекунд = 1 минута
+    let pupils = document.getElementById("pupils")
+    let elderypeople = document.getElementById("elderypeople")
+    function pupilsf(){
+        window.location.href = "pamiatkiForPupils.html"
+    }
+    function elderypeoplef(){
+
+    }
+    pupils.addEventListener('click', pupilsf, false)
+    elderypeople.addEventListener('click', elderypeoplef, false)
+</script>
+<script>
+    function createSnowflake() {
+        const snowflake = document.createElement('div');
+        snowflake.classList.add('snowflake');
+        snowflake.style.left = `${Math.random() * 100}vw`;
+        const size = `${Math.random() * 20 + 10}px`; // Adjust size range
+        snowflake.style.width = size;
+        snowflake.style.height = size;
+        snowflake.style.animationDuration = `${Math.random() * 5 + 5}s`; // Slower animation
+        document.getElementById('snowflakes-container').appendChild(snowflake);
+
+        setTimeout(() => {
+            snowflake.remove();
+        }, 10000); // Adjusted to match the slower animation
+    }
+
+    setInterval(createSnowflake, 100);
+</script>
+<script src="script.js"></script>
+</body>
+</html>
